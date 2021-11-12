@@ -19,7 +19,7 @@ public class Notas extends javax.swing.JFrame {
      */
     public Notas() {
         initComponents();
-        //this.jtxt_promedio.setText("0");
+        this.jtxt_promedio.setText("0");
         this.jtxt_promedio.setEnabled(false);
     }
 
