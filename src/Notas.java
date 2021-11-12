@@ -19,7 +19,7 @@ public class Notas extends javax.swing.JFrame {
      */
     public Notas() {
         initComponents();
-        //this.jtxt_promedio.setText("0");
+        this.jtxt_promedio.setText("0");
         this.jtxt_promedio.setEnabled(false);
     }
 
@@ -52,7 +52,7 @@ public class Notas extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jtxt_promedio = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("                                                   Promedio");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
@@ -251,8 +251,11 @@ public class Notas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Sus porcentajes no suman 100%", "Error", 0);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "No ha ingresado datos o bien debe ingresar números", "Error", 0);
-            System.out.println(e);
+
+            JOptionPane.showMessageDialog(this, "No ha ingresado datos o bien debe ingresar números", "Error", 2);
+            System.out.println("hola" + e);
+
+          
         }
 
 
