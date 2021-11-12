@@ -253,7 +253,7 @@ public class Notas extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(this, "No ha ingresado datos o bien debe ingresar números", "Error", 2);
-            System.out.println("hola" + e);
+            System.out.println("hola" + e + "chao");
 
           
         }
