@@ -251,8 +251,11 @@ public class Notas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Sus porcentajes no suman 100%", "Error", 0);
             }
         } catch (NumberFormatException e) {
+
             JOptionPane.showMessageDialog(this, "No ha ingresado datos o bien debe ingresar números", "Error", 2);
             System.out.println("hola" + e);
+
+          
         }
 
 
