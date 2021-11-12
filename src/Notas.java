@@ -1,5 +1,4 @@
 
-import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /*
@@ -20,7 +19,7 @@ public class Notas extends javax.swing.JFrame {
      */
     public Notas() {
         initComponents();
-        this.jtxt_promedio.setText("0");
+        //this.jtxt_promedio.setText("0");
         this.jtxt_promedio.setEnabled(false);
     }
 
@@ -242,9 +241,9 @@ public class Notas extends javax.swing.JFrame {
             int totalP = porcentaje1 + porcentaje2 + porcentaje3;
             if (totalP == 100) {
 
-                double promedio = ((nota1 * porcentaje1 / 100) + (nota2 * porcentaje2 / 100) + (nota3 * porcentaje3 / 100));
+                double promedio = (nota1 * porcentaje1 / 100 + nota2 * porcentaje2 / 100 + nota3 * porcentaje3 / 100);
 
-                double promedio2 = Math.round(promedio);
+                double promedio2 = Math.round(promedio * 100.0) / 100.0;
                 String prom = String.valueOf(promedio2);
                 this.jtxt_promedio.setText(prom);
 
