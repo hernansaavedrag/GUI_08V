@@ -1,4 +1,5 @@
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /*
@@ -6,7 +7,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author USRVI-LC3
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class Notas extends javax.swing.JFrame {
 
     private double promedio2 = 0;
-    
+
     /**
      * Creates new form Notas
      */
@@ -197,6 +197,7 @@ public class Notas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_porc_nota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_porc_nota2ActionPerformed
@@ -204,14 +205,14 @@ public class Notas extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_porc_nota2ActionPerformed
 
     private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed
-      
+
         //System.exit(0);
         dispose();
-        
+
     }//GEN-LAST:event_jbtn_salirActionPerformed
 
     private void jbtn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limpiarActionPerformed
-        
+
         this.jtxt_nota1.setText("");
         this.jtxt_nota2.setText("");
         this.jtxt_nota3.setText("");
@@ -220,36 +221,41 @@ public class Notas extends javax.swing.JFrame {
         this.jtxt_porc_nota3.setText("");
         this.jtxt_promedio.setText("0");
         this.jtxt_nota1.requestFocus();
-        
-        
+
+
     }//GEN-LAST:event_jbtn_limpiarActionPerformed
 
     private void jbtn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_calcularActionPerformed
-        
-        //obtener datos de los textfield (cajas de textos del fomulario)
-        //************************************************
-        double nota1 = Double.parseDouble(this.jtxt_nota1.getText());
-        double nota2 = Double.parseDouble(this.jtxt_nota2.getText());
-        double nota3 = Double.parseDouble(this.jtxt_nota3.getText());
-        
-        int porcentaje1 = Integer.parseInt(this.jtxt_porc_nota1.getText());
-        int porcentaje2 = Integer.parseInt(this.jtxt_porc_nota2.getText());
-        int porcentaje3 = Integer.parseInt(this.jtxt_porc_nota3.getText());
 
-        //************************************************
-        int totalP = porcentaje1 + porcentaje2 + porcentaje3;
-        if (totalP == 100) {
-            
-            double promedio = ((nota1*porcentaje1/100) + (nota2*porcentaje2/100)+(nota3*porcentaje3/100));
-            
-            double promedio2 = Math.round(promedio);
-            String prom = String.valueOf(promedio2);
-            this.jtxt_promedio.setText(prom);
-            
-            
-        } else {
-            JOptionPane.showMessageDialog(this, "Sus porcentajes no suman 100%", "Error", 0);
+        try {
+            //obtener datos de los textfield (cajas de textos del fomulario)
+            //************************************************
+            double nota1 = Double.parseDouble(this.jtxt_nota1.getText());
+            double nota2 = Double.parseDouble(this.jtxt_nota2.getText());
+            double nota3 = Double.parseDouble(this.jtxt_nota3.getText());
+
+            int porcentaje1 = Integer.parseInt(this.jtxt_porc_nota1.getText());
+            int porcentaje2 = Integer.parseInt(this.jtxt_porc_nota2.getText());
+            int porcentaje3 = Integer.parseInt(this.jtxt_porc_nota3.getText());
+
+            //************************************************
+            int totalP = porcentaje1 + porcentaje2 + porcentaje3;
+            if (totalP == 100) {
+
+                double promedio = ((nota1 * porcentaje1 / 100) + (nota2 * porcentaje2 / 100) + (nota3 * porcentaje3 / 100));
+
+                double promedio2 = Math.round(promedio);
+                String prom = String.valueOf(promedio2);
+                this.jtxt_promedio.setText(prom);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Sus porcentajes no suman 100%", "Error", 0);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "No ha ingresado datos o bien debe ingresar números", "Error", 0);
         }
+
+
     }//GEN-LAST:event_jbtn_calcularActionPerformed
 
     /**

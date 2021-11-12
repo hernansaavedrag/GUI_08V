@@ -102,6 +102,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_enviarActionPerformed
@@ -116,6 +117,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             this.jlbl_mensajes.setForeground(Color.black);
             this.jlbl_mensajes.setText("Inicio de sesión con éxito");
             new Menuppal().setVisible(true);
+            dispose();
             
         }else{
             this.jlbl_mensajes.setForeground(Color.red);
